@@ -1,0 +1,16 @@
+@model Etudiant
+
+<h2>Supprimer Etudiant</h2>
+
+<p>Voulez-vous vraiment supprimer cet étudiant ?</p>
+
+<div>
+    <h4>@Model.Nom @Model.Prenom</h4>
+    <p>Date de Naissance : @Model.DateDeNaissance.ToShortDateString()</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Confirmer la suppression</button>
+    <a asp-action="Index">Annuler</a>
+</form>

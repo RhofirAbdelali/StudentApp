@@ -1,0 +1,23 @@
+@model IEnumerable<Etudiant>
+<h2>Liste des étudiants</h2>
+<a asp-action="Create">Ajouter un nouvel étudiant</a>
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Date de Naissance</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var etudiant in Model)
+    {
+        <tr>
+            <td>@etudiant.Nom</td>
+            <td>@etudiant.Prenom</td>
+            <td>@etudiant.DateDeNaissance.ToShortDateString()</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@etudiant.Id">Modifier</a> |
+                <a asp-action="Delete" asp-route-id="@etudiant.Id">Supprimer</a>
+            </td>
+        </tr>
+    }
+</table>
